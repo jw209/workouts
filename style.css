@@ -1,0 +1,59 @@
+.container {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "body body"
+        "footer footer";
+    grid-template-columns: 1fr 3fr;
+    gap: 2px;
+    background-color: black;
+    padding: 2px;
+}
+.container > div {
+    background-color:azure;
+    padding: 10px;
+}
+
+.container > div.header {
+    grid-area: header;
+    text-align: center;
+    white-space: nowrap;
+    overflow: scroll;
+    overflow-y: hidden;
+    scrollbar-width:thin;
+}
+
+.container > div.body {
+    grid-area: body;
+}
+
+.container > div.footer {
+    grid-area: footer;
+}
+
+.highlight {
+    background-color: #d3f8d3;
+    font-weight: bold;
+}
+
+.selected {
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.options {
+    display: none;
+}
+
+/* Show the appropriate container when its radio button is checked */
+#push:checked ~ .push-options,
+#pull:checked ~ .pull-options,
+#legs:checked ~ .legs-options {
+    display: block;
+}
+
+.options label {
+    display: block;
+    margin-top: 5px;
+}

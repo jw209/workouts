@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Workouts</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+        <div class="header" id="h"></div>
+        <div class="body" id="b">
+            <form>
+                <label>Weigh-In (LBs)</label>
+                <input type="number" id="weight" name="weight">
+                <br><br>
+                <input type="radio" id="push" name="workout_type" value="PUSH">
+                <label for="push">Push</label><br>
+                <input type="radio" id="pull" name="workout_type" value="PULL">
+                <label for="pull">Pull</label><br>
+                <input type="radio" id="legs" name="workout_type" value="LEGS">
+                <label for="legs">Legs</label><br>
+
+                <div class="options push-options">
+                    <h3>Push Workout Benchmarks (SETS / REPS / WEIGHT)</h3>
+                    <h4>Incline Dumbell Bench Press:</h4>
+                    <input type="number" id="incline-dumbell-bench-press-sets" name="incline-dumbell-bench-press-sets">
+                    <input type="number" id="incline-dumbell-bench-press-reps" name="incline-dumbell-bench-press-reps">
+                    <input type="number" id="incline-dumbell-bench-press-weight" name="incline-dumbell-bench-press-weight">
+                    <h4>Tricep Pull Down:</h4>
+                    <input type="number" id="tricep-pull-down-sets" name="tricep-pull-down-sets">
+                    <input type="number" id="tricep-pull-down-reps" name="tricep-pull-down-reps">
+                    <input type="number" id="tricep-pull-down-weight" name="tricep-pull-down-weight">
+                    <h4>Push Up Endurance:</h4>
+                    <input type="number" id="push-up-endurance-sets" name="push-up-endurance-sets">
+                    <input type="number" id="push-up-endurance-reps" name="push-up-endurance-reps">
+                    <br><br>
+                </div>
+        
+                <div class="options pull-options">
+                    <h3>Pull Workout Benchmarks (SETS / REPS / WEIGHT)</h3>
+                    <h4>Bent Over Row:</h4>
+                    <input type="number" id="bent-over-row-sets" name="bent-over-row-sets">
+                    <input type="number" id="bent-over-row-reps" name="bent-over-row-reps">
+                    <input type="number" id="bent-over-row-weight" name="bent-over-row-weight">
+                    <h4>Deadlift:</h4>
+                    <input type="number" id="deadlift-sets" name="deadlift-sets">
+                    <input type="number" id="deadlift-reps" name="deadlift-reps">
+                    <input type="number" id="deadlift-weight" name="deadlift-weight">
+                    <h4>Pull-Up Endurance:</h4>
+                    <input type="number" id="pull-up-endurance-sets" name="pull-up-endurance-sets">
+                    <input type="number" id="pull-up-endurance-reps" name="pull-up-endurance-reps">
+                    <br><br>
+                </div>
+        
+                <div class="options legs-options">
+                    <h3>Leg Workout Benchmarks (SETS / REPS / WEIGHT)</h3>
+                    <h4>Barbell Squat:</h4>
+                    <input type="number" id="barbell-squat-sets" name="barbell-squat-sets">
+                    <input type="number" id="barbell-squat-reps" name="barbell-squat-reps">
+                    <input type="number" id="barbell-squat-weight" name="barbell-squat-weight">
+                    <h4>Dumbell Lunge:</h4>
+                    <input type="number" id="dumbell-lunge-sets" name="dumbell-lunge-sets">
+                    <input type="number" id="dumbell-lunge-reps" name="dumbell-lunge-reps">
+                    <input type="number" id="dumbell-lunge-weight" name="dumbell-lunge-weight">
+                    <h4>Wall Sit (Time In Minutes):</h4>
+                    <input type="number" id="wall-sit-time" name="wall-sit-time">
+                    <br><br>
+                </div>
+            </form>
+        </div>
+        <div class="footer" id="f">
+            <h4>Briefly explain the cardio activity for this day: </h4>
+            <input style="width: 95%" type="text"><br><br>
+            <input type="submit" id="submitall">
+        </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
