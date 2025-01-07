@@ -1,6 +1,5 @@
 var header = document.getElementById("h");
 
-// Function to format date as MM/DD/YYYY
 function formatDate(date) {
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
     const day = date.getDate().toString().padStart(2, '0');
@@ -8,7 +7,6 @@ function formatDate(date) {
     return `${month}/${day}/${year}`;
 }
 
-// Generate array of dates from 10 days in the past to 10 days in the future
 function generateDateRange() {
     const dates = [];
     const today = new Date();
@@ -22,7 +20,6 @@ function generateDateRange() {
     return dates;
 }
 
-// Populate the array
 const dateArray = generateDateRange();
 const today = formatDate(new Date());
 dateArray.forEach(date => {
@@ -60,30 +57,25 @@ const form = document.querySelector('form');
 var submitButton = document.getElementById("submitall");
 
 submitButton.addEventListener('click', (event) => {
-    event.preventDefault(); // Prevent the default form submission behavior
+    event.preventDefault();
 
-    // Collect form data
     const formData = new FormData(form);
     const jsonData = {};
 
-    // Add the current date to the JSON object
     const currentDate = new Date();
-    jsonData["date"] = currentDate.toISOString().split('T')[0]; // Format as YYYY-MM-DD
+    jsonData["date"] = currentDate.toISOString().split('T')[0];
 
-    // Iterate through form elements and populate JSON object
     for (let [key, value] of formData.entries()) {
         if (value !== '') {
-            jsonData[key] = isNaN(value) ? value : parseFloat(value); // Parse numbers where applicable
+            jsonData[key] = isNaN(value) ? value : parseFloat(value);
         }
     }
 
-    // Add cardio activity from the footer
     const cardioInput = document.querySelector('#f input[type="text"]');
     if (cardioInput && cardioInput.value.trim() !== '') {
         jsonData["cardio_activity"] = cardioInput.value.trim();
     }
 
-    // Display the JSON at the bottom of the page
     const footer = document.getElementById('f');
     let outputDiv = document.getElementById('json-output');
 
@@ -93,5 +85,14 @@ submitButton.addEventListener('click', (event) => {
         footer.appendChild(outputDiv);
     }
 
-    outputDiv.innerHTML = `<pre>${JSON.stringify(jsonData, null, 2)}</pre>`;
+    const jsonString = JSON.stringify(jsonData, null, 2);
+    outputDiv.innerHTML = `<pre>${jsonString}</pre>`;
+
+    navigator.clipboard.writeText(jsonString)
+        .then(() => {
+            console.log('JSON copied to clipboard!');
+        })
+        .catch(err => {
+            console.error('Failed to copy JSON: ', err);
+        });
 });
